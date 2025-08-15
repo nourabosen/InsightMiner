@@ -1,0 +1,75 @@
+- ## Quotes
+	- "It’s clear to me now that I have been moving toward you and you toward me for a long time."
+	  background-color:: yellow
+		- Note: *My favorite quote as always <3*
+	- "“I never looked that good before or after. It was him.”"
+		- Note: *Detalis, gentlemen. Detalis.*
+	- "“Analysis destroys wholes. Some things, magic things, are meant to stay whole. If you look at their pieces, they go away.”"
+		- Note: *And here is my favorite quote <3*
+	- "The words had been there for years, and she had never said them."
+		- Note: *Here comes my favorite quote "this kind of certainity comes once in a life time"*
+	- "‘The old dreams were good dreams; they didn’t work out, but I’m glad I had them.’"
+	  background-color:: yellow
+		- Note: *That quote broked my heart*
+	- "across the porch, and into the yard. He didn’t let the screen door bang like everyone else did but instead shut it gently."
+		- Note: *Detalis, gentlemen. Detalis.*
+	- "He was drawn to her, fighting it back."
+	- "“I don’t just take things as given; I try to make them into something that reflects my personal consciousness, my spirit. I try to find the poetry in the image."
+	  background-color:: yellow
+	- "He tried to think of something else, photography or the road or covered bridges. Anything but how she looked just now."
+	- "You’re a good person, Francesca."
+	- "Her insides jumped again, just as they had yesterday. A little stab of something that started in her chest and plunged to her stomach."
+	- "Her stomach tightened instantly as she thought,"
+	- "she was lying where the water had run down his body, and she found that intensely erotic. Almost everything about Robert Kincaid had begun to seem erotic to her."
+	- "was a little shaky, a little rough—“if you don’t mind my boldness, you look stunning."
+	- "somewhere who had deserted her years ago and had now returned."
+	- "From ten feet apart they were locked in to one another, solidly, intimately, and inextricably."
+	- "She was conscious of how warm his body felt through the shirt. The warmth came into her hand, moved up her arm, and from there spread through her to wherever it wanted to go, with no effort— indeed, with no control—from her."
+	- "Inexorably it did that, until there was nowhere left to go, except toward Francesca Johnson."
+	- "She felt awkward. So did he. But he took her hand, put an arm around her waist, she moved into him, and the awkwardness vanished."
+	- "He was real, more real than anything she’d ever known."
+	- "and without design, they had moved closer and closer together, dancing in the kitchen. Francesca was pressed close against his chest, and she wondered if he could feel her breasts through the dress and his shirt and was certain he could. He felt so good to her. She wanted this to run forever. More old songs, more dancing, more of his body against hers. She had become a woman again. There was room to dance again. In a slow, unremitting way, she was turning for home, toward a place she’d never been."
+	- "Thomas Wolfe talked about the “ghost of the old eagerness.” The ghost had stirred in Francesca Johnson. In both of them."
+	- "Strong enough that over the years she had dared do this in detail only once a year or her mind somehow would have disintegrated at the sheer emotional bludgeoning of it all."
+	- "saying them. Fragments of a Rilke poem, “around the ancient tower… I have been circling for a thousand years.”"
+	- "And he knew finally the meaning of all the small footprints on all the deserted beaches he had ever walked, of all the secret cargoes carried by ships that had never sailed, of all the curtained faces that had watched him pass down winding streets of twilight cities. And, like a great hunter of old who has traveled distant miles and now sees the light of his home campfires, his loneliness dissolved. At last. At last. He had come so far… so far. And he lay upon her, perfectly formed and unalterably complete in his love for her. At last."
+	- "looking straight into her eyes, “This is why I’m here on this planet, at this time, Francesca. Not to travel or make pictures, but to love you. I know that now. I have been falling from the rim of a great, high place, somewhere back in time, for many more years than I have lived in this life. And through all of those years, I have been falling toward you.” When"
+	  background-color:: yellow
+	- "“Yes?” She looked at him. Oh, God, I love him so, she thought, unsteady, wanting even more of him, never stopping."
+	- "I want to make a picture of you as you look this morning. A photograph just for the two of us.”"
+	- "“What are we going to do?”"
+	- "in a curious way, you own me."
+	- "I’m no longer sitting next to you, here on the grass. You have me inside of you as a willing prisoner.”"
+	- "I think we’re both inside of another being we have created called ‘us.’"
+	- "We have both lost ourselves and created something else, something that exists only as an interlacing of the two of us. Christ, we’re in love. As deeply, as profoundly, as it’s possible to be in love. “Come"
+	- "You’re too sensitive, too aware of my feelings, for that."
+	- "“As much as I want you and want to be with you and part of you, I can’t tear myself away from the realness of my responsibilities."
+	- "In a universe of ambiguity, this kind of certainty comes only once, and never again, no matter how many lifetimes you live.”"
+	  background-color:: yellow
+	- "Her mind was gone, empty, turning. “Don’t leave, Robert Kincaid,” she could hear herself crying out from somewhere inside."
+	- "“I was wrong, Robert, I was wrong to stay… but I can’t go…. Let me tell you again… why I can’t go…. Tell me again why I should go.”"
+	  background-color:: green
+	- "We represent the estate of one Robert L. Kincaid, who recently passed away…. “Oh, Robert… Robert… no.” She said it softly and bowed her head. An hour later she was able to continue reading."
+	- "A slip of paper was included with the bracelet. It was her handwriting: If you’d like supper again when “white moths are on the wing,” come by tonight after you’re finished. Her note from the Roseman Bridge. He’d kept even that for his memories. Then she remembered that was the only thing he had of hers, his only evidence she existed,"
+	- "I was on the road almost constantly from 1965 to 1975. Just to remove some of the temptation to call you or come for you, a temptation I have virtually every waking moment of my life, I took all of the overseas assignments I could find. There have been times, many of them, when I’ve said, “The hell with it. I’m going to Winterset, Iowa, and, whatever the cost, take Francesca away with me.”"
+	- "I am grateful for having at least found you. We could have flashed by one another like two pieces of cosmic dust."
+	  background-color:: yellow
+	- "To the universe, four days is no different than four billion light years. I try to keep that in mind."
+	- "I love you, profoundly and completely. And I always will. The last cowboy, Robert"
+	- "slowly— rolling and turning in adagio, in adagio always—ice-man falls… from Dimension Z… and into her."
+	- "In a way, he was not of this earth. That’s about as clear as I can say it. I’ve always thought of him as a leopardlike creature who rode in on the tail of a comet. He moved that way, his body was like that."
+	- "The paradox is this: If it hadn’t been for Robert Kincaid, I’m not sure I could have stayed on the farm all these years. In four days, he gave me a lifetime, a universe, and made the separate parts of me into a whole. I have never stopped thinking of him, not for a moment. Even when he was not in my conscious mind, I could feel him somewhere, always he was there."
+	- "I gave my family my life; I gave Robert Kincaid what was left of me."
+	  background-color:: green
+	- "“Francesca, I know you had your own dreams, too. I’m sorry I couldn’t give them to you.”"
+	- "we remained bound together as tightly as it’s possible for two people to be bound."
+	- "He said it best when he told me we had ceased being separate beings and, instead, had become a third being formed by the two of us. Neither of us existed independent of that being. And that being was left to wander."
+	- "“The attempt failed, and I was afraid something had happened to him, so I never tried again, out of that fear. I simply couldn’t face that reality. So you can imagine how I felt when the package with the attorney’s letter arrived in 1982."
+	- "Robert Kincaid taught me what it was like to be a woman in a way that few women, maybe none, will ever experience."
+	- "“They had four days together, just four. Out of a lifetime."
+	  background-color:: green
+	- "Look at the picture of Mom. I never saw her like that. She’s so beautiful, and it’s not the photograph. It’s what he did for her. Just look at her; she’s wild and free. Her hair’s blowing in the wind, her face is alive. She just looks wonderful.”"
+	- "“Just imagine her wearing this and dancing with him here in the kitchen. Think of all the time we’ve spent here and the images she must have seen while cooking and sitting here with us, talking about our problems, about where to go to college, about how hard it is to have a successful marriage."
+	- "That’s probably why we got along. You’re playing some tune you’ve played a thousand times before, and suddenly there’s a whole new set of ideas coming straight out of your horn without ever going through your conscious mind. He said photography and life in general were a lot like that. Then he added, “So is making love to a woman you love.”"
+	- "and I play that tune for a man named"
+	- "But, man, I’m haunted by that story he told me about him and the woman."

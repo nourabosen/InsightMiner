@@ -1,0 +1,45 @@
+- ## Quotes
+	- "Getting Things Done is not simply about getting things done. It’s about being appropriately engaged with your work and life."
+	- "This book is not so much concerned with getting things done as it is championing appropriate engagement with your world—guiding you to make the best choice of what to do in each moment, and to eliminate distraction and stress."
+	- "The methods I present here are all based on three key objectives:
+		- (1) capturing all the things that might need to get done or have usefulness for you—now, later, someday, big, little, or in between—in a logical and trusted system outside your head and off your mind;
+		- (2) directing yourself to make front-end decisions about all of the 'inputs' you let into your life so that you will always have a workable inventory of 'next actions' that you can implement or renegotiate in the moment; and
+		- (3) curating and coordinating all of that content, utilizing the recognition of the multiple levels of commitments with yourself and others you will have at play, at any point in time."
+	- "Neither our standard education, nor traditional time-management models, nor the plethora of digital and paper-based organizing tools available has given us a viable means of meeting the new demands placed on us."
+	- "Most people have lived in a semistressful experience so consistently, for so long, they don’t know that it could be quite different—that there is another and more positive place from which to engage with their world."
+	- "What did change is the most important element for clarity, focus, and peace of mind."
+	- "But what created that? Not 'getting organized' or 'setting priorities.' The answer is, thinking."
+	- "Rule your mind or it will rule you."
+	- "It’s a waste of time and energy to keep thinking about something that you make no progress on. And it only adds to your anxiety about what you should be doing and aren’t."
+	- "The key to managing all of your stuff is managing your actions."
+	- "The beginning is half of every action." —Greek proverb
+	- "It’s extremely difficult to manage actions you haven’t identified or decided on."
+	- "It is hard to fight an enemy who has outposts in your head." —Sally Kempton
+	- "We:
+		- (1) capture what has our attention;
+		- (2) clarify what each item means and what to do about it;
+		- (3) organize the results, which presents the options we
+		- (4) reflect on, which we then choose to
+		- (5) engage with."
+	- "Do It, Delegate It, or Defer It Once you’ve decided on the next action, you have three options:
+		- 1. Do it. If an action will take less than two minutes, it should be done at the moment it is defined.
+		- 2. Delegate it. If the action will take longer than two minutes, ask yourself, Am I the right person to do this? If the answer is no, delegate it to the appropriate entity.
+		- 3. Defer it, If the action will take longer than two minutes, and you are the right person to do it, you will have to defer acting on it until later and track it on one or more 'Next Actions' lists."
+	- "I define a project as any desired result that can be accomplished within a year that requires more than one action step."
+	- "Projects do not initially need to be listed in any particular order, by size, or by priority. They just need to be on a master list so you can review them regularly enough to ensure that appropriate next actions have been identified."
+	- "All of your Projects, active project plans, and Next Actions, Agendas, Waiting For, and even Someday/Maybe lists should be reviewed once a week."
+	- "You have to use your mind to get things off your mind."
+	- "The more complete the system is, the more you’ll trust it."
+	- "There is always more to do than you can do, and you can do only one thing at a time. The key is to feel as good about what you’re not doing as about what you are doing at that moment."
+	- "Minute-to-minute and day-to-day you don’t have time to think. You need to have already thought."
+	- "The key ingredients of relaxed control are
+		- (1) clearly defined outcomes (projects) and the next actions required to move them toward closure, and
+		- (2) reminders placed in a trusted system that is reviewed regularly."
+	- "You have an urge to make something happen; you image the outcome; you generate ideas that might be relevant; you sort those into a structure; and you define a physical activity that would begin to make it a reality."
+	- "Once you get all the ideas out of your head and in front of your eyes, you’ll automatically notice natural relationships and structure."
+	- "If there’s a lack of clarity at the planning level, there’s probably a need for more brainstorming to generate a sufficient inventory of current ideas and data to create trust in the plan."
+	- "You need to use your system—not continually have to re-create it."
+	- "The tool you use will not give you stress-free productivity."
+	- "To capture what you experience and sort it out…you must set up a file. Whenever you feel strongly about events or ideas you must try not to let them pass from your mind, but instead to formulate them for your files."
+	- "I’m just using it instead of thinking so much about it."
+	- "You can always upgrade your tools later, once you have your system in place."
