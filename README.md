@@ -1,5 +1,7 @@
 This project implements a Retrieval-Augmented Generation (RAG) system for searching and summarising content from a collection of documents, with a focus on extracting meaningful quotes and insights.
 
+> **Note:** I’ve included a `highlights/` folder for your convenience—place your Markdown files there to get started.
+
 ## Features
 * **Semantic Search**: Retrieve the most relevant content using vector embeddings.
 * **Intelligent Chunking**: Break documents into context-aware chunks for better retrieval.
@@ -27,7 +29,7 @@ This project implements a Retrieval-Augmented Generation (RAG) system for search
 pip install langchain langchain-community chromadb sentence-transformers transformers torch
 ```
 
-2. Place Markdown documents in a `highlights/` directory.
+2. Place Markdown documents in the `highlights/` directory (included for convenience).
 
 3. Create the vector database:
 ```bash
@@ -40,14 +42,56 @@ python query_data.py "your question about the content"
 ```
 
 ## Usage Examples
-* **Search key concepts:**
+### Example 1: Searching for productivity insights
 ```bash
-python query_data.py "what are the main ideas about productivity?"
+python query_data.py "how to be productive"
 ```
 
-* **Generate summarised insights:**
+**Output:**
+```
+🔍 Top 5 Results for: 'how to be productive'
+
+📌 Result 1 (Relevance: 1.00)
+📚 Source: 18 Minutes
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+To get the right things done, choosing what to ignore is as important as choosing where to focus.
+You can be relatively certain that if you decide when and where you’re going to do those things, you’ll actually, reliably and predictably, get them done.
+...
+📌 Result 5 (Relevance: 0.51)
+📚 Source: Feel-Good Productivity
+════════════════════════════════════════════════
+✨ Summary ✨
+1. The less distracted you are, the more productive you’ll be.
+2. What can you realistically accomplish that will further your focus for the year and allow you to leave at the end of the day feeling that you’ve been productive and successful?
+3. My life has changed. These days, I know that productivity isn’t about discipline; it’s about doing more of what makes you feel happier, less stressed, more energised.
+4. Productivity can be achieved only through imperfection.
+5. You need to have a reason for doing something in order to make performing that task worth your time and effort.
+```
+
+### Example 2: Searching for creativity insights
 ```bash
-python query_data.py "main takeaways from psychology research"
+python query_data.py "how to be creative"
+```
+
+**Output:**
+```
+🔍 Top 5 Results for: 'how to be creative'
+
+📌 Result 1 (Relevance: 1.00)
+📚 Source: Designing Your Life
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+And if you accept this idea—that there are multiple great designs for your life, though you’ll still only get to live one—it is rather liberating.
+Do not fall in love with your first idea.
+...
+📌 Result 5 (Relevance: 0.74)
+📚 Source: 18 Minutes
+════════════════════════════════════════════════
+✨ Summary ✨
+1. So be a genius at your life design; just don’t think you have to be one of those lone geniuses.
+2. Artists should focus on mastering their own territory or turf—the place where they are experts, or have control or mastery.
+3. Choice is yours: either master your mind to create the life you want, or remain mired in frustration and failure.
+4. Realize that “we are the makers of ourselves” through the power of the thoughts we choose and encourage.
+5. To home in on your passion, think about what you love doing—what’s important enough to you that you’re willing to persist over the year, even when it feels like you’re not succeeding at it.
 ```
 
 ## Implementation Notes
