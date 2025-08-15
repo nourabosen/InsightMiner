@@ -8,8 +8,6 @@ This project implements a Retrieval-Augmented Generation (RAG) system for search
 * **Insight Summarisation**: Generates coherent summaries from multiple sources.
 * **Fully Local**: Runs entirely on your machine using HuggingFace models.
 
----
-
 ## Components
 ### 1. `create_database.py`
 * Loads Markdown files from `highlights/`
@@ -22,8 +20,6 @@ This project implements a Retrieval-Augmented Generation (RAG) system for search
 * Extracts and filters high-quality quotes
 * Generates concise, context-aware summaries
 * Formats output for readability
-
----
 
 ## Setup
 1. Install dependencies:
@@ -43,8 +39,6 @@ python create_database.py
 python query_data.py "your question about the content"
 ```
 
----
-
 ## Usage Examples
 * **Search key concepts:**
 ```bash
@@ -56,8 +50,6 @@ python query_data.py "what are the main ideas about productivity?"
 python query_data.py "main takeaways from psychology research"
 ```
 
----
-
 ## Implementation Notes
 * **Embeddings**: `sentence-transformers/all-mpnet-base-v2`
 * **Reranking**: `cross-encoder/ms-marco-MiniLM-L-6-v2`
@@ -65,20 +57,14 @@ python query_data.py "main takeaways from psychology research"
 * Processes content locally without API calls
 * Special handling for quotes and text formatting
 
----
-
 ## Customization
 * Modify **quote filtering rules** in `query_data.py`
 * Swap models for embeddings, reranking, or summarisation
-
----
 
 ## Limitations
 * Works best with text-heavy documents
 * Requires Markdown format
 * Initial database creation may be memory-intensive
-
----
 
 ## Inspiration
 Inspired by [RAG + Langchain Python Project: Easy AI/Chat For Your Docs](https://www.youtube.com/watch?v=tcqEUSNCn8I), with enhanced quote extraction and summarization.
