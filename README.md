@@ -60,7 +60,7 @@ You can be relatively certain that if you decide when and where you’re going t
 📌 Result 5 (Relevance: 0.51)
 📚 Source: Feel-Good Productivity
 ════════════════════════════════════════════════
-✨ Summary ✨
+✨ Insights ✨
 1. The less distracted you are, the more productive you’ll be.
 2. What can you realistically accomplish that will further your focus for the year and allow you to leave at the end of the day feeling that you’ve been productive and successful?
 3. My life has changed. These days, I know that productivity isn’t about discipline; it’s about doing more of what makes you feel happier, less stressed, more energised.
@@ -86,7 +86,7 @@ Do not fall in love with your first idea.
 📌 Result 5 (Relevance: 0.74)
 📚 Source: 18 Minutes
 ════════════════════════════════════════════════
-✨ Summary ✨
+✨ Insights ✨
 1. So be a genius at your life design; just don’t think you have to be one of those lone geniuses.
 2. Artists should focus on mastering their own territory or turf—the place where they are experts, or have control or mastery.
 3. Choice is yours: either master your mind to create the life you want, or remain mired in frustration and failure.
