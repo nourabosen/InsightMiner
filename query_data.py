@@ -95,7 +95,7 @@ def extract_and_filter_quotes(text):
     
     return valid_quotes
 
-def generate_quality_summary(texts, query):
+def generate_quality_insight(texts, query):
     """Generate clean, coherent, relevant insights from sources."""
     if not texts or not query:
         return "🔍 No content provided for summarization."
@@ -127,21 +127,21 @@ def generate_quality_summary(texts, query):
     else:
         top_quotes = unique_quotes
 
-    summary = f"✨ Top Insights About '{query}' ✨\n\n"
+    insight = f"✨ Top Insights About '{query}' ✨\n\n"
     for i, q in enumerate(top_quotes, 1):
         q = re.sub(r'\s+', ' ', q).strip()
         if q and not q.endswith(('.', '!', '?')):
             q += '.'
         q = q[0].upper() + q[1:]
-        summary += f"{i}. {q}\n"
+        insight += f"{i}. {q}\n"
 
     if len(top_quotes) >= 2:
-        summary += "\n💡 Which of these resonates most with you?"
+        insight += "\n💡 Which of these resonates most with you?"
 
-    return summary
+    return insight
 
 def query_database(query, top_k=5):
-    """Retrieve top results and generate a summary."""
+    """Retrieve top results and generate a insight."""
     try:
         results = db.similarity_search_with_score(query, k=top_k*3)
     except Exception as e:
@@ -180,10 +180,10 @@ def query_database(query, top_k=5):
         print()
     
     print("═" * 80)
-    print("✨ Summary ✨".center(80))
+    print("✨ Insights ✨".center(80))
     print("═" * 80)
-    summary = generate_quality_summary([r['content'] for r in processed[:top_k]], query)
-    print(summary)
+    insight = generate_quality_insight([r['content'] for r in processed[:top_k]], query)
+    print(insight)
     print("\n" + "═" * 80 + "\n")
 
 # --- Main ---
