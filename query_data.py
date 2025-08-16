@@ -1,21 +1,17 @@
 from langchain_community.vectorstores import Chroma
 from langchain_community.embeddings import HuggingFaceEmbeddings
 from sentence_transformers import CrossEncoder
-from transformers import pipeline
-import numpy as np
 import re
 import sys
 
 # --- Constants ---
 EMBEDDING_MODEL = "sentence-transformers/all-mpnet-base-v2"
 RERANKER_MODEL = "cross-encoder/ms-marco-MiniLM-L-6-v2"
-SUMMARIZER_MODEL = "sshleifer/distilbart-cnn-12-6"
 
 # --- Initialize models ---
 embedding_function = HuggingFaceEmbeddings(model_name=EMBEDDING_MODEL)
 db = Chroma(persist_directory="chroma_db", embedding_function=embedding_function)
 reranker = CrossEncoder(RERANKER_MODEL)
-summarizer = pipeline("summarization", model=SUMMARIZER_MODEL)
 
 # --- Helper functions ---
 def clean_text(text):
@@ -52,7 +48,6 @@ def format_content(content, width=80):
             q = q.strip()
             if q and q not in seen:
                 seen.add(q)
-                # Capitalize first letter and add punctuation if missing
                 if not q.endswith(('.', '!', '?')):
                     q += '.'
                 q = q[0].upper() + q[1:]
@@ -83,7 +78,6 @@ def extract_and_filter_quotes(text):
     if not cleaned:
         return []
     
-    # Extract quotes and bullet points
     quotes = re.findall(r'"([^"]+)"', cleaned)
     quotes += re.findall(r'•\s*(.+?)(?=\n|$)', cleaned)
     
@@ -92,12 +86,10 @@ def extract_and_filter_quotes(text):
         q = q.strip()
         words = q.split()
         
-        # Skip too short/long, or irrelevant quotes
         if (6 <= len(words) <= 40) and \
            not q.lower().startswith(("chapter", "section", "note")) and \
            not q.endswith((":", "-", "...")) and \
            not any(word.isupper() for word in words[:3]):
-            # Remove trailing punctuation artifacts
             q = q.rstrip(",.;")
             valid_quotes.append(q)
     
@@ -108,7 +100,6 @@ def generate_quality_summary(texts, query):
     if not texts or not query:
         return "🔍 No content provided for summarization."
 
-    # Extract and filter quotes from all texts
     valid_quotes = []
     for t in texts:
         valid_quotes.extend(extract_and_filter_quotes(t))
@@ -116,7 +107,6 @@ def generate_quality_summary(texts, query):
     if not valid_quotes:
         return "🔍 No strong insights found in the sources."
 
-    # Remove duplicates while preserving order
     seen = set()
     unique_quotes = []
     for q in valid_quotes:
@@ -125,7 +115,6 @@ def generate_quality_summary(texts, query):
             seen.add(q_lower)
             unique_quotes.append(q)
 
-    # Rerank quotes if more than 5
     if len(unique_quotes) > 5:
         try:
             pairs = [(query, q) for q in unique_quotes]
@@ -138,7 +127,6 @@ def generate_quality_summary(texts, query):
     else:
         top_quotes = unique_quotes
 
-    # Format the summary
     summary = f"✨ Top Insights About '{query}' ✨\n\n"
     for i, q in enumerate(top_quotes, 1):
         q = re.sub(r'\s+', ' ', q).strip()
@@ -172,7 +160,6 @@ def query_database(query, top_k=5):
         print("🔍 No quality results found")
         return
     
-    # Rerank processed results
     if len(processed) > 2:
         pairs = [(query, r['content']) for r in processed]
         rerank_scores = reranker.predict(pairs)
@@ -184,7 +171,6 @@ def query_database(query, top_k=5):
         for r in processed:
             r['score'] = r['raw_score']
     
-    # Print top results
     print(f"\n🔍 Top {min(top_k, len(processed))} Results for: '{query}'\n")
     for i, res in enumerate(processed[:top_k], 1):
         print(f"📌 Result {i} (Relevance: {res['score']:.2f})")
@@ -193,7 +179,6 @@ def query_database(query, top_k=5):
         print(format_content(res['content']))
         print()
     
-    # Generate summary
     print("═" * 80)
     print("✨ Summary ✨".center(80))
     print("═" * 80)
