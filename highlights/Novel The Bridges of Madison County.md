@@ -1,18 +1,12 @@
 - ## Quotes
 	- "It’s clear to me now that I have been moving toward you and you toward me for a long time."
 	  background-color:: yellow
-		- Note: *My favorite quote as always <3*
 	- "“I never looked that good before or after. It was him.”"
-		- Note: *Detalis, gentlemen. Detalis.*
 	- "“Analysis destroys wholes. Some things, magic things, are meant to stay whole. If you look at their pieces, they go away.”"
-		- Note: *And here is my favorite quote <3*
 	- "The words had been there for years, and she had never said them."
-		- Note: *Here comes my favorite quote "this kind of certainity comes once in a life time"*
 	- "‘The old dreams were good dreams; they didn’t work out, but I’m glad I had them.’"
 	  background-color:: yellow
-		- Note: *That quote broked my heart*
 	- "across the porch, and into the yard. He didn’t let the screen door bang like everyone else did but instead shut it gently."
-		- Note: *Detalis, gentlemen. Detalis.*
 	- "He was drawn to her, fighting it back."
 	- "“I don’t just take things as given; I try to make them into something that reflects my personal consciousness, my spirit. I try to find the poetry in the image."
 	  background-color:: yellow
