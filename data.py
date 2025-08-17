@@ -1,8 +1,8 @@
-from langchain_community.vectorstores import Chroma
-from langchain_community.embeddings import HuggingFaceEmbeddings
+from langchain_chroma import Chroma
+from langchain_huggingface import HuggingFaceEmbeddings
 from sentence_transformers import CrossEncoder
+from utils import clean_text
 import re
-import sys
 
 # --- Constants ---
 EMBEDDING_MODEL = "sentence-transformers/all-mpnet-base-v2"
@@ -13,32 +13,17 @@ embedding_function = HuggingFaceEmbeddings(model_name=EMBEDDING_MODEL)
 db = Chroma(persist_directory="chroma_db", embedding_function=embedding_function)
 reranker = CrossEncoder(RERANKER_MODEL)
 
-# --- Helper functions ---
-def clean_text(text):
-    """Clean text but preserve quotes."""
-    if not text or not isinstance(text, str):
-        return ""
-    
-    if "## Quotes" in text:
-        return text
-    
-    text = re.sub(r'background-color:: \w+', '', text)
-    text = re.sub(r'==|[\*\_\[\]\(\)#-]', '', text)
-    text = re.sub(r'(\w) "(\w)', r'\1 "\2', text)
-    text = re.sub(r'\s+', ' ', text)
-    return text.strip()
 
+# --- Helper functions ---
 def format_content(content, width=80):
     """Format text nicely with one quote per line."""
     if not content:
         return ""
-    
+
     # Remove unwanted artifacts
-    content = re.sub(r'background-color:: \w+', '', content)
-    content = re.sub(r'\bQuotes\b', '', content)
-    content = re.sub(r'==|[\*\_\[\]\(\)#-]', '', content)
-    content = re.sub(r'\s+', ' ', content).strip()
-    
+    content = clean_text(content)
+    content = re.sub(r"\bQuotes\b", "", content)
+
     # Split quotes into separate lines
     quotes = re.findall(r'"([^"]+)"', content)
     if quotes:
@@ -48,52 +33,56 @@ def format_content(content, width=80):
             q = q.strip()
             if q and q not in seen:
                 seen.add(q)
-                if not q.endswith(('.', '!', '?')):
-                    q += '.'
+                if not q.endswith((".", "!", "?")):
+                    q += "."
                 q = q[0].upper() + q[1:]
                 cleaned_quotes.append(q)
         return "\n".join(cleaned_quotes)
-    
+
     # Fallback: split into paragraphs
-    paragraphs = [p.strip() for p in content.split('\n') if p.strip()]
+    paragraphs = [p.strip() for p in content.split("\n") if p.strip()]
     lines = []
     for para in paragraphs:
         words = para.split()
         line = []
         for word in words:
-            if len(' '.join(line + [word])) <= width:
+            if len(" ".join(line + [word])) <= width:
                 line.append(word)
             else:
-                lines.append(' '.join(line))
+                lines.append(" ".join(line))
                 line = [word]
         if line:
-            lines.append(' '.join(line))
-        lines.append('')
-    
+            lines.append(" ".join(line))
+        lines.append("")
+
     return "\n".join(lines)
+
 
 def extract_and_filter_quotes(text):
     """Extract and filter quotes from text."""
     cleaned = clean_text(str(text))
     if not cleaned:
         return []
-    
+
     quotes = re.findall(r'"([^"]+)"', cleaned)
-    quotes += re.findall(r'•\s*(.+?)(?=\n|$)', cleaned)
-    
+    quotes += re.findall(r"•\s*(.+?)(?=\n|$)", cleaned)
+
     valid_quotes = []
     for q in quotes:
         q = q.strip()
         words = q.split()
-        
-        if (6 <= len(words) <= 40) and \
-           not q.lower().startswith(("chapter", "section", "note")) and \
-           not q.endswith((":", "-", "...")) and \
-           not any(word.isupper() for word in words[:3]):
+
+        if (
+            (6 <= len(words) <= 40)
+            and not q.lower().startswith(("chapter", "section", "note"))
+            and not q.endswith((":", "-", "..."))
+            and not any(word.isupper() for word in words[:3])
+        ):
             q = q.rstrip(",.;")
             valid_quotes.append(q)
-    
+
     return valid_quotes
+
 
 def generate_quality_insight(texts, query):
     """Generate clean, coherent, relevant insights from sources."""
@@ -103,7 +92,7 @@ def generate_quality_insight(texts, query):
     valid_quotes = []
     for t in texts:
         valid_quotes.extend(extract_and_filter_quotes(t))
-    
+
     if not valid_quotes:
         return "🔍 No strong insights found in the sources."
 
@@ -119,7 +108,9 @@ def generate_quality_insight(texts, query):
         try:
             pairs = [(query, q) for q in unique_quotes]
             scores = reranker.predict(pairs)
-            scored_quotes = sorted(zip(unique_quotes, scores), key=lambda x: x[1], reverse=True)
+            scored_quotes = sorted(
+                zip(unique_quotes, scores), key=lambda x: x[1], reverse=True
+            )
             top_quotes = [q for q, _ in scored_quotes[:5]]
         except Exception as e:
             print(f"⚠️ Reranking error: {str(e)}")
@@ -129,9 +120,9 @@ def generate_quality_insight(texts, query):
 
     insight = f"✨ Top Insights About '{query}' ✨\n\n"
     for i, q in enumerate(top_quotes, 1):
-        q = re.sub(r'\s+', ' ', q).strip()
-        if q and not q.endswith(('.', '!', '?')):
-            q += '.'
+        q = re.sub(r"\s+", " ", q).strip()
+        if q and not q.endswith((".", "!", "?")):
+            q += "."
         q = q[0].upper() + q[1:]
         insight += f"{i}. {q}\n"
 
@@ -140,57 +131,55 @@ def generate_quality_insight(texts, query):
 
     return insight
 
+
 def query_database(query, top_k=5):
     """Retrieve top results and generate a insight."""
     try:
-        results = db.similarity_search_with_score(query, k=top_k*3)
+        results = db.similarity_search_with_score(query, k=top_k * 3)
     except Exception as e:
         print(f"❌ Search error: {e}")
         return
-    
+
     processed = []
     for doc, score in results:
         content = doc.page_content
         if content and len(clean_text(content).split()) > 10:
-            source = doc.metadata.get('source', 'unknown')
-            filename = source.split('/')[-1].replace('.md', '').replace('Book ', '')
-            processed.append({'content': content, 'raw_score': float(score), 'source': filename})
-    
+            source = doc.metadata.get("source", "unknown")
+            filename = source.split("/")[-1].replace(".md", "").replace("Book ", "")
+            processed.append(
+                {"content": content, "raw_score": float(score), "source": filename}
+            )
+
     if not processed:
         print("🔍 No quality results found")
         return
-    
+
     if len(processed) > 2:
-        pairs = [(query, r['content']) for r in processed]
+        pairs = [(query, r["content"]) for r in processed]
         rerank_scores = reranker.predict(pairs)
         min_s, max_s = min(rerank_scores), max(rerank_scores)
         for i, score in enumerate(rerank_scores):
-            processed[i]['score'] = 0.1 + 0.9 * ((score - min_s) / (max_s - min_s)) if max_s > min_s else 0.5
-        processed.sort(key=lambda x: x['score'], reverse=True)
+            processed[i]["score"] = (
+                0.1 + 0.9 * ((score - min_s) / (max_s - min_s))
+                if max_s > min_s
+                else 0.5
+            )
+        processed.sort(key=lambda x: x["score"], reverse=True)
     else:
         for r in processed:
-            r['score'] = r['raw_score']
-    
+            r["score"] = r["raw_score"]
+
     print(f"\n🔍 Top {min(top_k, len(processed))} Results for: '{query}'\n")
     for i, res in enumerate(processed[:top_k], 1):
         print(f"📌 Result {i} (Relevance: {res['score']:.2f})")
         print(f"📚 Source: {res['source']}")
         print("━" * 80)
-        print(format_content(res['content']))
+        print(format_content(res["content"]))
         print()
-    
+
     print("═" * 80)
     print("✨ Insights ✨".center(80))
     print("═" * 80)
-    insight = generate_quality_insight([r['content'] for r in processed[:top_k]], query)
+    insight = generate_quality_insight([r["content"] for r in processed[:top_k]], query)
     print(insight)
     print("\n" + "═" * 80 + "\n")
-
-# --- Main ---
-if __name__ == "__main__":
-    if len(sys.argv) < 2:
-        print("Usage: python query_data.py \"your question\"")
-        sys.exit(1)
-    
-    query = " ".join(sys.argv[1:])
-    query_database(query)
