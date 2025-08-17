@@ -1,7 +1,5 @@
 This project implements a Retrieval-Augmented Generation (RAG) system for searching and summarising content from a collection of documents, with a focus on extracting meaningful quotes and insights.
 
-> **Note:** I’ve included a `highlights/` folder for your convenience—place your Markdown files there to get started.
-
 ## Features
 
 * **Semantic Search**: Retrieve the most relevant content using vector embeddings.
@@ -75,14 +73,15 @@ python run.py query "how to be productive"
 
 📌 Result 1 (Relevance: 1.00)
 📚 Source: 18 Minutes
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 To get the right things done, choosing what to ignore is as important as choosing where to focus.
 You can be relatively certain that if you decide when and where you’re going to do those things, you’ll actually, reliably and predictably, get them done.
 ...
-📌 Result 5 (Relevance: 0.51)
+📌 Result 5 (Relevance: 0.53)
 📚 Source: Feel-Good Productivity
 ════════════════════════════════════════════════
-✨ Insights ✨
+✨ Top Insights About 'how to be productive' ✨
+
 1. The less distracted you are, the more productive you’ll be.
 2. What can you realistically accomplish that will further your focus for the year and allow you to leave at the end of the day feeling that you’ve been productive and successful?
 3. My life has changed. These days, I know that productivity isn’t about discipline; it’s about doing more of what makes you feel happier, less stressed, more energised.
@@ -102,20 +101,22 @@ python run.py query "how to be creative"
 🔍 Top 5 Results for: 'how to be creative'
 
 📌 Result 1 (Relevance: 1.00)
-📚 Source: Designing Your Life
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-And if you accept this idea—that there are multiple great designs for your life, though you’ll still only get to live one—it is rather liberating.
-Do not fall in love with your first idea.
+📚 Source: As a Man Thinketh
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+A blessed life is the sure result of right thought.
+The power of thought multiplies through focus and concentration.
+As a person strives and fails, again and again, in the service of a worthy goal, their character is strengthened and deepened. They turn obstacles into steppingstones. This is the measure of true success.
 ...
-📌 Result 5 (Relevance: 0.74)
-📚 Source: 18 Minutes
+📌 Result 5 (Relevance: 0.52)
+📚 Source: Designing Your Life
 ════════════════════════════════════════════════
-✨ Insights ✨
-1. So be a genius at your life design; just don’t think you have to be one of those lone geniuses.
-2. Artists should focus on mastering their own territory or turf—the place where they are experts, or have control or mastery.
-3. Choice is yours: either master your mind to create the life you want, or remain mired in frustration and failure.
-4. Realize that “we are the makers of ourselves” through the power of the thoughts we choose and encourage.
-5. To home in on your passion, think about what you love doing—what’s important enough to you that you’re willing to persist over the year, even when it feels like you’re not succeeding at it.
+✨ Top Insights About 'how to be creative' ✨
+
+1. Allied with purpose, your every thought is energized, giving you the courage to face and overcome any obstacle. Purposedriven thought is a creative force.
+2. So be a genius at your life design; just don’t think you have to be one of those lone geniuses.
+3. Artists should focus on mastering their own territory or turf—the place where they are experts, or have control or mastery.
+4. Work is fun when you are actually leaning into your strengths and are deeply engaged and energized by what you’re doing.
+5. And if you accept this idea—that there are multiple great designs for your life, though you’ll still only get to live one—it is rather liberating.
 ```
 
 ## Implementation Notes
