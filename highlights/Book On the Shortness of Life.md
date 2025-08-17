@@ -7,7 +7,6 @@
 	  
 	  The War of Art (Steven Pressfield)
 	- "How many pages have I produced? I don't care. Are they any good? I don't even think about it. All that matters is I've put in my time and hit it with all I've got. All that counts is that, for this day, for this session, I have overcome Resistance."
-		- Note: *Resistance*
 	- "Resistance is the most toxic force on the planet."
 	- "Is that what it takes? Do we have to stare death in the face to make us stand up and confront Resistance?"
 	- "it was easier for Hitler to start World War II than it was for him to face a blank square of canvas."
