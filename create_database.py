@@ -1,10 +1,18 @@
-from langchain_community.document_loaders import DirectoryLoader
+from langchain_community.document_loaders import DirectoryLoader, TextLoader
 from langchain.text_splitter import RecursiveCharacterTextSplitter
 from langchain_huggingface import HuggingFaceEmbeddings
 from langchain_chroma import Chroma
+from query_data import clean_text
 
 # --- Load documents ---
-loader = DirectoryLoader("highlights", glob="**/*.md")
+class CleanTextLoader(TextLoader):
+    def load(self):
+        docs = super().load()
+        for doc in docs:
+            doc.page_content = clean_text(doc.page_content)
+        return docs
+
+loader = DirectoryLoader("highlights", glob="**/*.md", loader_cls=CleanTextLoader)
 docs = loader.load()
 
 # --- Semantic chunking for better context ---
@@ -20,6 +28,5 @@ embedding_function = HuggingFaceEmbeddings(model_name="sentence-transformers/all
 
 # --- Create Chroma DB ---
 db = Chroma.from_documents(chunks, embedding_function, persist_directory="chroma_db")
-db.persist()
 
 print(f"✅ Database created with {len(chunks)} chunks")
