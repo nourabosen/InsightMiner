@@ -24,19 +24,31 @@ This project implements a Retrieval-Augmented Generation (RAG) system for search
 * Formats output for readability
 
 ## Setup
-1. Install dependencies:
+1. Create Python Environment:
 ```bash
-pip install langchain langchain-community chromadb sentence-transformers transformers torch
+python3 -m venv path/to/venv
+source path/to/venv/bin/activate
 ```
 
-2. Place Markdown documents in the `highlights/` directory (included for convenience).
+2. Install dependencies:
+```bash
+python3 -m pip install -r requirements.txt
+```
 
-3. Create the vector database:
+3. Install `libmagic` depending on your machine:
+```bash
+brew install libmagic # for mac
+sudo apt install libmagic # debian-based linux
+```
+
+4. Place Markdown documents in the `highlights/` directory (included for convenience).
+
+5. Create the vector database:
 ```bash
 python create_database.py
 ```
 
-4. Query the knowledge base:
+6. Query the knowledge base:
 ```bash
 python query_data.py "your question about the content"
 ```

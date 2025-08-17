@@ -1,5 +1,5 @@
-from langchain_community.vectorstores import Chroma
-from langchain_community.embeddings import HuggingFaceEmbeddings
+from langchain_chroma import Chroma
+from langchain_huggingface import HuggingFaceEmbeddings
 from sentence_transformers import CrossEncoder
 import re
 import sys
@@ -34,10 +34,7 @@ def format_content(content, width=80):
         return ""
     
     # Remove unwanted artifacts
-    content = re.sub(r'background-color:: \w+', '', content)
-    content = re.sub(r'\bQuotes\b', '', content)
-    content = re.sub(r'==|[\*\_\[\]\(\)#-]', '', content)
-    content = re.sub(r'\s+', ' ', content).strip()
+    content = clean_text(content)
     
     # Split quotes into separate lines
     quotes = re.findall(r'"([^"]+)"', content)
