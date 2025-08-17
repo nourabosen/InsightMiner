@@ -3,6 +3,7 @@ This project implements a Retrieval-Augmented Generation (RAG) system for search
 > **Note:** I’ve included a `highlights/` folder for your convenience—place your Markdown files there to get started.
 
 ## Features
+
 * **Semantic Search**: Retrieve the most relevant content using vector embeddings.
 * **Intelligent Chunking**: Break documents into context-aware chunks for better retrieval.
 * **Quote Extraction**: Automatically identifies meaningful quotes and key points.
@@ -11,31 +12,38 @@ This project implements a Retrieval-Augmented Generation (RAG) system for search
 * **Fully Local**: Runs entirely on your machine using HuggingFace models.
 
 ## Components
-### 1. `create_database.py`
+
+### 1. `python run.py database create`
+
 * Loads Markdown files from `highlights/`
 * Splits text into semantic chunks
 * Generates embeddings with `sentence-transformers/all-mpnet-base-v2`
 * Stores vectors in ChromaDB for efficient local retrieval
 
-### 2. `query_data.py`
+### 2. `python run.py query`
+
 * Performs semantic search with optional hybrid reranking
 * Extracts and filters high-quality quotes
 * Generates concise, context-aware summaries
 * Formats output for readability
 
 ## Setup
+
 1. Create Python Environment:
+
 ```bash
 python3 -m venv path/to/venv
 source path/to/venv/bin/activate
 ```
 
 2. Install dependencies:
+
 ```bash
 python3 -m pip install -r requirements.txt
 ```
 
 3. Install `libmagic` depending on your machine:
+
 ```bash
 brew install libmagic # for mac
 sudo apt install libmagic # debian-based linux
@@ -44,22 +52,24 @@ sudo apt install libmagic # debian-based linux
 4. Place Markdown documents in the `highlights/` directory (included for convenience).
 
 5. Create the vector database:
+
 ```bash
-python create_database.py
+python run.py database create
 ```
 
 6. Query the knowledge base:
-```bash
-python query_data.py "your question about the content"
-```
 
 ## Usage Examples
+
 ### Example 1: Searching for productivity insights
+
 ```bash
-python query_data.py "how to be productive"
+python run.py query "how to be productive"
+# Or just: python run.py query   (for interactive mode)
 ```
 
 **Output:**
+
 ```
 🔍 Top 5 Results for: 'how to be productive'
 
@@ -81,11 +91,13 @@ You can be relatively certain that if you decide when and where you’re going t
 ```
 
 ### Example 2: Searching for creativity insights
+
 ```bash
-python query_data.py "how to be creative"
+python run.py query "how to be creative"
 ```
 
 **Output:**
+
 ```
 🔍 Top 5 Results for: 'how to be creative'
 
@@ -107,6 +119,7 @@ Do not fall in love with your first idea.
 ```
 
 ## Implementation Notes
+
 * **Embeddings**: `sentence-transformers/all-mpnet-base-v2`
 * **Reranking**: `cross-encoder/ms-marco-MiniLM-L-6-v2`
 * **Summarization**: `sshleifer/distilbart-cnn-12-6`
@@ -114,13 +127,16 @@ Do not fall in love with your first idea.
 * Special handling for quotes and text formatting
 
 ## Customization
+
 * Modify **quote filtering rules** in `query_data.py`
 * Swap models for embeddings, reranking, or summarisation
 
 ## Limitations
+
 * Works best with text-heavy documents
 * Requires Markdown format
 * Initial database creation may be memory-intensive
 
 ## Inspiration
+
 Inspired by [RAG + Langchain Python Project: Easy AI/Chat For Your Docs](https://www.youtube.com/watch?v=tcqEUSNCn8I), with enhanced quote extraction and summarization.
