@@ -1,6 +1,5 @@
 - ## Quotes
 	- "The more you think of yourself as worthless, stupid, or ugly, the more you condition yourself to interpret life that way. You get trapped in a thought loop."
-		- Note: *How habits stick*
 	- "Breakthrough moments are often the result of many previous actions, which build up the potential required to unleash a major change."
 	- "Goals are good for setting a direction, but systems are best for making progress."
 	- "You can be satisfied anytime your system is running. And a system can be successful in many different forms, not just the one you first envision."
