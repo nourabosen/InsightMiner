@@ -1,0 +1,67 @@
+- ## Quotes
+	- "work accomplished = time spent x intensity of focus"
+	  background-color:: yellow
+	- "Having to record, in ink, on paper, that you procrastinated over a task for no good reason is a powerful blow to your ego."
+	- "Each morning, when you work out your schedule for the day, quickly jot down in the notebook the date and the most important tasks that you are scheduled to get done. At the end of the day, if you’ve completed all of these tasks, simply jot down all completed. If you failed to complete some tasks, record this, along with a quick explanation."
+	- "on paper their foolishness is exposed. You can no longer get away with lame rationalizations."
+	- "If you’re a coffee drinker, start off with a strong brew to jump-start your mind, but switch to decaf, tea, or just water for the next hour or two before returning to another strong drink."
+	- "The novelty of the location, plus its distance from campus, will help jump-start your motivation to tackle your horrible task once there."
+	- "The idea is to build a routine in which you use the same reserved time slot each week to do the same thing, with the goal of transforming these slices of work into a habit, something you no longer have to convince yourself to do."
+	  background-color:: yellow
+	- "scout out one or two days to preemptively designate as “hard.” By choosing them ahead of time, you can space them out so that you never have two hard days in a row, and you won’t be caught off guard by this sudden burst of intensity."
+	- "Like an academic ninja, slip from hidden study spot to hidden study spot, leaving only an eerie trail of completed work behind you"
+	- "By taking advantage of daytime study pockets, you’re freeing up valuable nighttime hours to go out and have the sort of fun that defines the college experience."
+	- "It may sound corny, but quarantining yourself in a study bunker seems to increase the importance of the work you are about to tackle."
+	- "It’s important to read over your notes right after class to absorb them and make corrections and additions, otherwise you’ll be susceptible to entirely forgetting what was covered that day."
+	- "record as many sample problems as possible."
+	- "If you pay close attention in class and take good notes, much of the reading is often unnecessary."
+	- "You can work on problem sets in small pieces while you’re between classes or activities."
+	- "If you organize your materials the same day that you review them, your brain will be too tired to accomplish both effectively. So keep these two tasks separate"
+	- "Learning a large quantity of material from scratch during the review process is a mistake made by average students—and you should avoid this."
+	- "Be imaginative and intuitive—look for unusual connections between individuals, ideas, and broader themes,"
+	- "Start general, then move one layer deep."
+	- "the second step of your thesis-hunting expedition is to examine the list of books and articles cited in the relevant sections of your general sources. From this list, choose the cited works that look the most promising, and then go find them in the library."
+	- "The most important part of your paper is the thesis. Once you have a solid thesis, the rest just falls into place."
+	- "The Research Termination Determination Procedure: 1. List the topics (specific questions, facts, or accounts from your research) that are crucial to support your thesis. 2. List the topics that might help you support your thesis. 3. If you have at least two good sources for each of the topics from # 1, and have at least one good source for a majority of the topics from # 2, then you’re done. Otherwise, you need to keep researching."
+	- "In order to write a great paper, you really need to make connections that other people haven’t made, and the only way to do that is to think."
+	  background-color:: yellow
+	- "So write a lot and read good arguments a lot. This is the best recipe for developing your skills for this step."
+	- "the background noise of your mind. “The first thing I do when I have a paper to write is take a nap,” explains Laura, a straight-A student from Dartmouth. “I crawl into bed and just think…as long as I’m thinking about the subject when I fall asleep, I will dream about the material and usually come up with some sort of interesting idea.”"
+	- "If you can explain why your argument works in a rational, step-by-step manner, and you have an arsenal of sources to cite to support the argument, then you’re ready to go."
+	- "would map out a schedule, for example, write two pages a day for five days, and then edit one day."
+	- "If necessary, arrange in advance to kick them out for a few hours so you can work in peace. In addition, you should schedule your writing to correspond to your energetic high points during the day."
+	- "The key is to recognize that writing is perhaps the most demanding (in terms of focus required) intellectual activity you will do while a college student."
+	- "With a pencil in hand, and this is the important part, begin to read your paper out loud. Don’t cheat. Use a strong voice and articulate each word as if you’re delivering a speech."
+	- "Something that looks fine on paper will jump out as strange or poorly worded when you hear it,"
+	- "Over the course of this week she takes a lot of walks around campus to consider her argument. She imagines explaining her thesis to an enthralled audience. She revisits her source material often to refresh her memory on what information is available and to stoke the flames of her intellectual curiosity."
+	- "he separated the reading from the thinking and the thinking from the writing. This leads to a well-thought-out argument, clearly articulated."
+	  background-color:: yellow
+	- Writing an Academic Paper
+		- "Step # 1. Target a Titillating Topic
+			- Start looking for an interesting topic early."
+		- Step # 2. Conduct a Thesis-Hunting Expedition
+			- Start with general sources and then follow references to find the more targeted sources where good thesis ideas often hide.
+		- Step # 3. Seek a Second Opinion
+			- A thesis is not a thesis until a professor has approved it.
+		- Step # 4. Research like a Machine
+			- Find sources.
+			- Make personal copies of all sources.
+			- Annotate the material.
+			- Decide if you’re done. (If the answer is “no,” loop back to # 1.)
+		- Step # 5. Craft a Powerful Story
+			- There is no shortcut to developing a well-balanced and easy-to-follow argument.
+			- Dedicate a good deal of thought over time to getting it right.
+			- Describe your argument in a topic-level outline.
+			- Type supporting quotes from sources directly into your outline.
+		- Step # 6. Consult Your Expert Panel
+			- Before starting to write, get some opinions on the organization of your argument and your support from classmates and friends who are familiar with the general area of study.
+			- The more important the paper, the more people who should review it.
+		- Step # 7. Write Without the Agony
+			- Follow your outline and articulate your points clearly.
+			- Write no more than three to five pages per weekday and five to eight pages per weekend day.
+		- Step # 8. Fix, Don’t Fixate
+			- Solid editing requires only three careful passes:
+				- The Argument Adjustment Pass: Read the paper carefully on your computer to make sure your argument is clear, fix obvious errors, and rewrite where the flow needs improvement.
+				- The Out Loud Pass: Carefully read out loud a printed copy of your paper, marking any awkward passages or unclear explanations.
+				- The Sanity Pass: A final pass over a printed version of the paper to check the overall flow and to root out any remaining errors."
+	- "this book is about so much more than just grades; it is about taking responsibility for your own journey through life."

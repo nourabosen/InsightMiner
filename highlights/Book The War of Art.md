@@ -1,0 +1,8 @@
+- ## Summary Quotes
+	- "Resistance is the negative energy that stands between a person and his or her dreams."
+	- "To defeat Resistance, a writer must think like a professional, not an amateur. This means working hard enough to overcome obstacles and temptations."
+	- "in overcoming Resistance, it is important to focus on the immediate present. An artist needs to think about what he or she can do immediately to advance towards a goal."
+	- "When an artist is afraid of pursuing a project, that means that it is the right thing for the artist to pursue."
+	- "Resistance is most powerful when an artist is most in love with a project, or most invested in it."
+	- "The professional works no matter whether he or she is inspired or motivated."
+	- "artists should focus on mastering their own territory or turf—the place where they are experts, or have control or mastery."
