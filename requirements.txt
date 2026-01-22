@@ -7,3 +7,5 @@ sentence-transformers==5.1.0
 torch==2.8.0
 transformers==4.55.2
 unstructured[md]==0.18.13
+streamlit
+watchdog

@@ -1,5 +1,6 @@
 - ## Quotes
 	- "society is not cowardice…it is conformity.”"
+		- Note: *Need to find that*
 	- "People with goals succeed because they know where they’re going. It’s that simple."
 	- "We become what we think about."
 	- "Are your thoughts centered more on your own actions and feelings or on the actions and feelings of others?"

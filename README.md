@@ -25,6 +25,13 @@ This project implements a Retrieval-Augmented Generation (RAG) system for search
 * Generates concise, context-aware summaries
 * Formats output for readability
 
+### 3. `streamlit run streamlit_app.py`
+
+* Launches a modern web interface
+* Provides visual search results and insights
+* **Incremental Updates**: Upload new books and add them instantly without rebuilding the whole database
+* **Full Rebuild**: Option to completely reset and re-index the library
+
 ## Setup
 
 1. Create Python Environment:
@@ -56,6 +63,17 @@ python run.py database create
 ```
 
 6. Query the knowledge base:
+
+   **Option A: CLI**
+   ```bash
+   python run.py query
+   ```
+
+   **Option B: Modern UI**
+   ```bash
+   streamlit run streamlit_app.py
+   ```
+   *Or use the Makefile:* `make run`
 
 ## Usage Examples
 

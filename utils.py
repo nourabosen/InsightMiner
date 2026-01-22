@@ -1,4 +1,5 @@
 import re
+from langchain_community.document_loaders import TextLoader
 
 
 def clean_text(text):
@@ -14,3 +15,11 @@ def clean_text(text):
     text = re.sub(r'(\w) "(\w)', r'\1 "\2', text)
     text = re.sub(r"\s+", " ", text)
     return text.strip()
+
+
+class CleanTextLoader(TextLoader):
+    def load(self):
+        docs = super().load()
+        for doc in docs:
+            doc.page_content = clean_text(doc.page_content)
+        return docs

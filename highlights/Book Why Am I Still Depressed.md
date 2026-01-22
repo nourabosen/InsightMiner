@@ -1,5 +1,6 @@
 - ## Quotes
 	- "Negative version of mania?"
+		- Note: *It happened before, yes*
 	- "Your diagnosis has two main functions: To help guide you to effective treatment To offer some clues about your future (such as, Will this go away? How bad could it get? Will it come again?"
 	- "Perhaps you have enough bipolarity that you might do better with the treatment approaches used for people who are more obviously bipolar than you."
 	- "definitions—before muddying the waters with"

@@ -1,18 +1,122 @@
 from langchain_chroma import Chroma
 from langchain_huggingface import HuggingFaceEmbeddings
+from langchain_community.document_loaders import DirectoryLoader
+from langchain.text_splitter import RecursiveCharacterTextSplitter
 from sentence_transformers import CrossEncoder
-from utils import clean_text
+from utils import clean_text, CleanTextLoader
 import re
 
 # --- Constants ---
 EMBEDDING_MODEL = "sentence-transformers/all-mpnet-base-v2"
 RERANKER_MODEL = "cross-encoder/ms-marco-MiniLM-L-6-v2"
 
-# --- Initialize models ---
-embedding_function = HuggingFaceEmbeddings(model_name=EMBEDDING_MODEL)
-db = Chroma(persist_directory="chroma_db", embedding_function=embedding_function)
-reranker = CrossEncoder(RERANKER_MODEL)
+# --- Initialize models (Lazy Loading) ---
+class SearchEngine:
+    _instance = None
 
+    @classmethod
+    def get(cls):
+        if cls._instance is None:
+            print("⏳ Loading models... (this might take a moment)")
+            cls._instance = cls()
+            print("✅ Models loaded!")
+        return cls._instance
+
+    @classmethod
+    def reset(cls):
+        """Reset the singleton instance (useful before rebuilding DB)."""
+        if cls._instance:
+            print("🔄 Resetting search engine instance...")
+            # Try to release resources if possible
+            del cls._instance
+            cls._instance = None
+
+    def __init__(self):
+        self.embedding_function = HuggingFaceEmbeddings(model_name=EMBEDDING_MODEL)
+        self.db = Chroma(persist_directory="chroma_db", embedding_function=self.embedding_function)
+        self.reranker = CrossEncoder(RERANKER_MODEL)
+
+    def rebuild(self):
+        """Rebuild the database using the existing connection."""
+        print("🔄 Rebuilding database...")
+        
+        # 1. Clear existing data
+        try:
+            # Try to delete the collection entirely
+            self.db.delete_collection()
+            print("🗑️ Collection deleted.")
+        except Exception as e:
+            print(f"⚠️ Warning during collection deletion: {e}")
+            # Fallback: Try to delete all documents if collection deletion failed
+            try:
+                # Empty dictionary means match all in some versions, or might need workarounds
+                # But safer to just try delete_collection. 
+                # If that failed, maybe the DB connection is stale.
+                pass
+            except:
+                pass
+
+        # 2. Re-initialize DB (creates new collection if deleted, or reconnects)
+        # Force a reload of the client if possible
+        self.db = Chroma(persist_directory="chroma_db", embedding_function=self.embedding_function)
+
+        # 3. Load and Process Documents
+        print("📂 Loading documents...")
+        loader = DirectoryLoader("highlights", glob="**/*.md", loader_cls=CleanTextLoader)
+        docs = loader.load()
+
+        if not docs:
+            print("⚠️ No documents found in 'highlights/'")
+            return
+
+        print("✂️ Splitting documents...")
+        splitter = RecursiveCharacterTextSplitter(
+            chunk_size=800, chunk_overlap=150, separators=["\n\n", "\n", ".", " ", ""]
+        )
+        chunks = splitter.split_documents(docs)
+
+        # 4. Add to DB
+        print(f"💾 Adding {len(chunks)} chunks to database...")
+        self.db.add_documents(chunks)
+        print("✅ Database rebuild complete!")
+
+    def add_documents_from_files(self, file_paths):
+        """Add specific files to the database, removing old versions first."""
+        print(f"📂 Processing {len(file_paths)} new documents...")
+        
+        # 1. Remove existing chunks for these files to avoid duplicates
+        for file_path in file_paths:
+            source_path = str(file_path)
+            try:
+                # Clean up old entries for this file
+                # The 'source' metadata field typically stores the relative path
+                print(f"🧹 Cleaning existing entries for: {source_path}")
+                self.db.delete(where={"source": source_path})
+            except Exception as e:
+                print(f"⚠️ Note: Could not clean existing entries for {source_path} (might be new): {e}")
+
+        # 2. Load new content
+        docs = []
+        for file_path in file_paths:
+            try:
+                loader = CleanTextLoader(str(file_path))
+                docs.extend(loader.load())
+            except Exception as e:
+                print(f"⚠️ Error loading {file_path}: {e}")
+        
+        if not docs:
+            print("⚠️ No valid documents loaded.")
+            return
+
+        print("✂️ Splitting documents...")
+        splitter = RecursiveCharacterTextSplitter(
+            chunk_size=800, chunk_overlap=150, separators=["\n\n", "\n", ".", " ", ""]
+        )
+        chunks = splitter.split_documents(docs)
+
+        print(f"💾 Adding {len(chunks)} chunks to database...")
+        self.db.add_documents(chunks)
+        print("✅ Added new documents successfully!")
 
 # --- Helper functions ---
 def format_content(content, width=80):
@@ -106,8 +210,9 @@ def generate_quality_insight(texts, query):
 
     if len(unique_quotes) > 5:
         try:
+            engine = SearchEngine.get()
             pairs = [(query, q) for q in unique_quotes]
-            scores = reranker.predict(pairs)
+            scores = engine.reranker.predict(pairs)
             scored_quotes = sorted(
                 zip(unique_quotes, scores), key=lambda x: x[1], reverse=True
             )
@@ -132,13 +237,24 @@ def generate_quality_insight(texts, query):
     return insight
 
 
-def query_database(query, top_k=5):
-    """Retrieve top results and generate a insight."""
+def search_database(query, top_k=5, book_filter=None):
+    """Retrieve top results and generate insights via return values."""
     try:
-        results = db.similarity_search_with_score(query, k=top_k * 3)
+        engine = SearchEngine.get()
+        
+        filter_dict = None
+        if book_filter:
+            # Construct the source path as expected in metadata
+            # usually "highlights/Filename.md"
+            sources = [f"highlights/{b}" for b in book_filter]
+            if len(sources) == 1:
+                filter_dict = {"source": sources[0]}
+            else:
+                filter_dict = {"source": {"$in": sources}}
+            
+        results = engine.db.similarity_search_with_score(query, k=top_k * 3, filter=filter_dict)
     except Exception as e:
-        print(f"❌ Search error: {e}")
-        return
+        return [], f"❌ Search error: {e}"
 
     processed = []
     for doc, score in results:
@@ -151,12 +267,11 @@ def query_database(query, top_k=5):
             )
 
     if not processed:
-        print("🔍 No quality results found")
-        return
+        return [], "🔍 No quality results found"
 
     if len(processed) > 2:
         pairs = [(query, r["content"]) for r in processed]
-        rerank_scores = reranker.predict(pairs)
+        rerank_scores = engine.reranker.predict(pairs)
         min_s, max_s = min(rerank_scores), max(rerank_scores)
         for i, score in enumerate(rerank_scores):
             processed[i]["score"] = (
@@ -169,8 +284,22 @@ def query_database(query, top_k=5):
         for r in processed:
             r["score"] = r["raw_score"]
 
-    print(f"\n🔍 Top {min(top_k, len(processed))} Results for: '{query}'\n")
-    for i, res in enumerate(processed[:top_k], 1):
+    top_results = processed[:top_k]
+    insight = generate_quality_insight([r["content"] for r in top_results], query)
+    
+    return top_results, insight
+
+
+def query_database(query, top_k=5):
+    """CLI wrapper for search_database."""
+    results, insight = search_database(query, top_k)
+    
+    if not results:
+        print(insight) # Will contain error or "no results" message
+        return
+
+    print(f"\n🔍 Top {len(results)} Results for: '{query}'\n")
+    for i, res in enumerate(results, 1):
         print(f"📌 Result {i} (Relevance: {res['score']:.2f})")
         print(f"📚 Source: {res['source']}")
         print("━" * 80)
@@ -180,6 +309,5 @@ def query_database(query, top_k=5):
     print("═" * 80)
     print("✨ Insights ✨".center(80))
     print("═" * 80)
-    insight = generate_quality_insight([r["content"] for r in processed[:top_k]], query)
     print(insight)
     print("\n" + "═" * 80 + "\n")

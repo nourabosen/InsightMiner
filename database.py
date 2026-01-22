@@ -4,6 +4,8 @@ from langchain_huggingface import HuggingFaceEmbeddings
 from langchain_chroma import Chroma
 from utils import clean_text
 from shutil import rmtree
+import time
+import os
 
 
 # --- Load documents ---
@@ -16,7 +18,16 @@ class CleanTextLoader(TextLoader):
 
 
 def clean_database():
-    rmtree("chroma_db")
+    if os.path.exists("chroma_db"):
+        try:
+            rmtree("chroma_db")
+        except OSError as e:
+            print(f"⚠️ Error cleaning DB: {e}. Retrying...")
+            time.sleep(1)
+            try:
+                rmtree("chroma_db")
+            except OSError:
+                print("❌ Failed to fully clean DB. Attempting to proceed anyway.")
 
 
 def create_database():
