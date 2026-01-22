@@ -1,5 +1,0 @@
-- ## Quotes
-	- "You need to have a reason for doing something in order to make performing that task worth your time and effort."
-	- "The less distracted you are, the more productive you’ll be."
-	- "If you have superhuman focus in the morning, but the focus of a bored 3-year-old in the afternoon, test the following schedule: Work for 90 minutes Take a 15-minute break Work for 60 minutes Take a 10-minute break Work for 50 minutes Take a 10-minute break"
-	- "If laziness is preventing you from using time chunks, that’s a sign that your reasons are not sufficiently compelling to you."
